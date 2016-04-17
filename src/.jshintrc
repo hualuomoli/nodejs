@@ -1,0 +1,14 @@
+{
+  "predef": [
+    "__dirname",
+    "process",
+    "console",
+    "require",
+    "module",
+    "path"
+  ],
+  "strict": false,
+  "undef": true,
+  "unused": false,
+  "asi": true
+}

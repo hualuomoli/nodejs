@@ -1,7 +1,7 @@
 {
-  "name": "server",
+  "name": "nodejs",
   "version": "1.0.0",
-  "description": "front server",
+  "description": "nodejs server",
   "main": "app.js",
   "scripts": {
     "prestart": "npm install",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hualuomoli/front.git"
+    "url": "git+https://github.com/hualuomoli/nodejs.git"
   },
   "author": "hualuomoli",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hualuomoli/front/issues"
+    "url": "https://github.com/hualuomoli/nodejs/issues"
   },
-  "homepage": "https://github.com/hualuomoli/front#readme",
+  "homepage": "https://github.com/hualuomoli/nodejs#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
     "colors": "^1.1.2",

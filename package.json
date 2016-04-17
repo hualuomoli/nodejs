@@ -4,7 +4,10 @@
   "description": "front server",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --reporter mochawesome"
+    "prestart": "npm install",
+    "start": "set PORT=3000 & node ./src/app.js",
+    "pretest": "npm install",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

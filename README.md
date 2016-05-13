@@ -15,8 +15,8 @@ supervisor能够监控nodejs的服务端代码变化,nodejs的文件变化后,su
 
 # 请求转发
 如果希望nodejs作为前端应用的资源服务器,其他web服务器提供RESTFUL风格接口,则可配置转发路由 <br>
-> 修改config.js 配置web服务器地址
-> 修改routes/forward.js配置转发策略
-> 修改index.jsp配置转发路由的优先级(默认优先级最低)
+> 修改config.js 配置web服务器地址 <br>
+> 修改routes/forward.js配置转发策略 <br>
+> 修改index.jsp配置转发路由的优先级(默认优先级最低) <br>
 
 

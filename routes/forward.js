@@ -1,12 +1,11 @@
-var express = require('express');
-var request = require('request');
-var fs = require('fs');
-
 /**
  * https://github.com/request/request
  * 请求转发
  * nodejs作为前端的服务器,转发非nodejs处理的请求到web服务器
  */
+var express = require('express');
+var request = require('request');
+var fs = require('fs');
 var config = require('../config');
 var logger = require('../assets/logger');
 

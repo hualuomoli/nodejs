@@ -4,6 +4,8 @@
   "description": "nodejs server",
   "main": "app.js",
   "scripts": {
+    "prestart": "npm install",
+    "start": "supervisor app.js",
     "pretest": "npm install",
     "test": "mocha"
   },

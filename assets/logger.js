@@ -1,22 +1,25 @@
 var log4js = require('log4js');
-var fs = require('fs');
 var path = require('path');
 var colors = require('colors');
 
-var logs = path.join(__dirname, '../logs');
-if (!fs.existsSync(logs)) {
-  fs.mkdirSync(logs);
-  console.log('create folder '.green + logs);
-}
+var config = require('../config');
+var file = require('./file');
 
-// config
+// 日志目录
+var logpath = config.logpath;
+
+// 创建目录
+file.mkdirSync(logpath);
+
+
+// 配置log4js
 log4js.configure({
   "appenders": [{
     "type": "console"
   }, {
     "type": "file",
     "absolute": true,
-    "filename": logs + "/log.log",
+    "filename": path.join(logpath, 'log.log'),
     "maxLogSize": 20480,
     "backups": 3
   }, {
@@ -25,13 +28,11 @@ log4js.configure({
     "appender": {
       "type": "file",
       "absolute": true,
-      "filename": logs + "/errors.log",
+      "filename": path.join(logpath, 'error.log'),
       "maxLogSize": 204800,
       "backups": 3
     }
   }]
 });
-
-
 
 module.exports = log4js.getLogger();

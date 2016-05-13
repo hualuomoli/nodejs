@@ -7,42 +7,44 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var colors = require('colors');
 
-var logger = require('./logger/logger');
-var routes = require('./routes');
+var config = require('./config');
+var logger = require('./assets/logger');
 
 var app = express();
 
-// set port
+// 设置端口
 app.set('port', process.env.PORT || 3000);
 
-// uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, '../favicon.ico')));
-// morgan
+// 图标
+app.use(favicon(path.join(__dirname, './favicon.ico')));
+// 请求日志
 app.use(morgan('dev'));
-// file upload
+// 文件上传
 app.use(multer({
-  dest: path.join(__dirname, 'uploads')
+  dest: path.join(config.uploadpath)
 }));
-// parse application/json 
+// 解析器
+// 解析json
 app.use(bodyParser.json());
-// parse application/x-www-form-urlencoded 
+// 解析urlencoded
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-// parse cookie
+// 解析cookie
 app.use(cookieParser());
 
-// static
+// 静态资源
 // app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
 
-// route
-routes(app);
+// 配置路由
+require('./routes')(app);
 
+// 启动服务
 app.listen(app.get('port'), function () {
   logger.debug('server started in ' + app.get('port'));
 })
 
-// export
+// 导出app,方便mocha测试
 module.exports = app;

@@ -5,7 +5,9 @@
     "console",
     "require",
     "module",
-    "path"
+    "path",
+    "describe",
+    "it"
   ],
   "strict": false,
   "undef": true,

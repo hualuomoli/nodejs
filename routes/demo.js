@@ -69,16 +69,20 @@ router.post('/uri/:username/:token', function (req, res) {
 // file upload
 ////////////////////////////
 router.post('/upload', function (req, res) {
-  logger.debug('upload parameter ');
-  logger.debug(req.body)
-  logger.debug(req.files)
+  var body = req.body;
+  var files = req.files;
 
-  res.status(200)
-    .type('json')
-    .send({
-      datas: req.body,
-      files: req.files
-    });
+  logger.debug('upload parameter ');
+  logger.debug(body)
+  logger.debug(files)
+
+  // 文件上传,返回文件的原始文件名
+  var data = body;
+  for (var field in files) {
+    data[field] = files[field].originalname;
+  }
+
+  res.send(data);
 
 });
 

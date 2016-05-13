@@ -1,5 +1,6 @@
 var express = require('express');
 var util = require('util');
+var config = require('../config');
 
 module.exports = function (app) {
 
@@ -8,6 +9,15 @@ module.exports = function (app) {
   // demo
   app.use('/demo', require('./demo'));
 
+  // 透传测试路由地址
+  app.use('/forwardserver', require('./forward-server'));
+
+  // 透传
+  if (config.remoteUrl && config.remoteUrl.length > 0) {
+    app.use('/', require('./forward'));
+  }
+
+  // end
 }
 
 function setCross(app) {

@@ -7,6 +7,7 @@ var config = {
   uploadpath: path.join(__dirname, './uploads'),
   /** 下载文件目录 */
   downloadpath: path.join(__dirname, './downloads'),
+  remoteUrl: 'http://localhost:3000/forwardserver'
 }
 
 module.exports = config;

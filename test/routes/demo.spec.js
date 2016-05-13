@@ -315,6 +315,9 @@ describe('URI请求', function () {
 
 describe('文件上传', function () {
 
+  // 设置超时时间为10s
+  this.timeout(10000);
+
   // 文件来自百度图片
   var files = {
     photo: {
@@ -339,12 +342,12 @@ describe('文件上传', function () {
       .attach('picture', req(files.picture.url))
       .expect(200)
       .expect(function (res) {
-        res.body.datas.username.should.be.equal('admin');
-        res.body.datas.token.should.be.equal('1234567890');
-        res.body.datas.address.code.should.be.equal('370203');
-        res.body.datas.address.home.should.be.equal('山东省青岛市市北区');
-        res.body.files.photo.originalname.should.be.equal(files.photo.filename);
-        res.body.files.picture.originalname.should.be.equal(files.picture.filename);
+        res.body.username.should.be.equal('admin');
+        res.body.token.should.be.equal('1234567890');
+        res.body.address.code.should.be.equal('370203');
+        res.body.address.home.should.be.equal('山东省青岛市市北区');
+        res.body.photo.should.be.equal(files.photo.filename);
+        res.body.picture.should.be.equal(files.picture.filename);
       })
       .end(done);
   });
